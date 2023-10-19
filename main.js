@@ -31,21 +31,18 @@ const changeMarker = () => {
   }
 }
 
-const resetBoard = () => {
-
-    board = [
-      ["","",""],
-      ["","",""],
-      ["","",""]
-    ]
-  }  
+// const resetBoard = () => {
+//     board = [
+//       ["","",""],
+//       ["","",""],
+//       ["","",""]
+//     ]
+//   }  
 
 const checkForWin = () => {
   if (horizontalWin() || verticalWin() || diagonalWin()) {
-    console.log(`Player ${currentMarker} won!`); 
-    resetBoard();
     return true;
-  } else return false;
+  }
 }
 
 // const newGameCheck = () => {
@@ -65,14 +62,15 @@ const printBoard = () => {
   console.log('2 ' + board[2].join(' | '));
 }
 
+
 const horizontalWin = () => {
   if ((board[0][0] == "X" && board[0][1] == "X" && board[0][2] == "X") 
   || (board[0][0] == "O" && board[0][1] == "O" && board[0][2] == "O")
   || (board[1][0] == "X" && board[1][1] == "X" && board[1][2] == "X")
   || (board[1][0] == "O" && board[1][1] == "O" && board[1][2] == "O")
   || (board[2][0] == "X" && board[2][1] == "X" && board[2][2] == "X")
-  || (board[2][0] == "O" && board[2][1] == "O" && board[2][2] == "O"))
-  return true
+  || (board[2][0] == "O" && board[2][1] == "O" && board[2][2] == "O")){
+  return true}
   else {return false}
 }
 
@@ -82,8 +80,8 @@ const verticalWin = () => {
   || (board[0][1] == "X" && board[1][1] == "X" && board[2][1] == "X")
   || (board[0][1] == "O" && board[1][1] == "O" && board[2][1] == "O")
   || (board[0][2] == "X" && board[1][2] == "X" && board[2][2] == "X")
-  || (board[0][2] == "O" && board[1][2] == "O" && board[2][2] == "O"))
-  return true
+  || (board[0][2] == "O" && board[1][2] == "O" && board[2][2] == "O")){
+  return true}
   else {return false}
 }
 
@@ -91,14 +89,18 @@ const diagonalWin = () => {
   if ((board[0][0] == "X" && board[1][1] == "X" && board[2][2] == "X") 
   || (board[0][0] == "O" && board[1][1] == "O" && board[2][2] == "O")
   || (board[2][0] == "X" && board[1][1] == "X" && board[0][2] == "X")
-  || (board[2][0] == "O" && board[1][1] == "O" && board[0][2] == "O"))
-  return true
+  || (board[2][0] == "O" && board[1][1] == "O" && board[0][2] == "O")){
+  return true}
   else {return false}
 }
 
 const ticTacToe = (r,c) => {
   board[(r)][(c)] = currentMarker;
-  checkForWin();
+  if (checkForWin()) {
+    console.log(`Player ${currentMarker} won!`); 
+    // resetBoard();
+    return true
+  } 
   changeMarker()
 }
 

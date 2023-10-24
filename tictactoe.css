@@ -1,7 +1,16 @@
+.jumbotron {
+  margin: 5% auto;
+  margin-left: auto;
+}
+
 td{
   height:150px;
   width:150px;
   text-align: center;
   border: 5px solid black;
   font-size: 100px;
+}
+
+table {
+  margin: auto auto;
 }
